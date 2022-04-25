@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="bg-success text-white">
+    <tr>
         <td>{{$bid->id}}</td>
         <td>{{$bid->subject}}</td>
         <td>{{$bid->message}}</td>

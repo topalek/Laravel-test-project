@@ -20,9 +20,9 @@ class BidRegisterService
 
         $bid = Bid::new($request['subject'], $request['message'], $filePath);
 
-        $manager = User::whereRole(User::ROLE_MANAGER)->first();
+        $managers = User::whereRole(User::ROLE_MANAGER)->get();
 
-        Mail::queue(new NewBidMail($bid));
+        Mail::to($managers)->queue(new NewBidMail($bid));
     }
 
     public function getUser(): User
